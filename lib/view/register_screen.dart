@@ -39,7 +39,8 @@ class RegisterScreen extends ConsumerWidget {
 
     Future pickImage() async {
       try {
-        final image = await picker.pickImage(source: ImageSource.camera);
+        // final image = await picker.pickImage(source: ImageSource.camera);
+        final image = await picker.pickImage(source: ImageSource.gallery);
         if (image == null) return;
         final imageTemp = File(image.path);
         viewModel.updateAvartaImage(imageTemp);
@@ -912,8 +913,7 @@ class RegisterScreen extends ConsumerWidget {
                                         // ignore: use_build_context_synchronously
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(snackBar);
-                                      }
-                                      else {
+                                      } else {
                                         if (_formKey.currentState!.validate()) {
                                           var url = Uri.parse(
                                               '${Constants.baseUrl}api/register');
