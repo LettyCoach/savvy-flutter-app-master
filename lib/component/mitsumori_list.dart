@@ -81,7 +81,7 @@ class _MitsumoriListState extends ConsumerState<MitsumoriList> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: (100.w - 180),
+                          width: (100.w - 240),
                           child: Text(
                             viewModel.getMitsumori_list[index].name,
                             maxLines: 2,
@@ -92,11 +92,6 @@ class _MitsumoriListState extends ConsumerState<MitsumoriList> {
                                 fontSize: 12),
                           ),
                         ),
-                        Text(
-                          viewModel.getMitsumori_list[index].price.toString(),
-                          style: TextStyle(
-                              color: AppColors.basicColor, fontSize: 12),
-                        )
                       ],
                     )
                   ],
@@ -105,21 +100,28 @@ class _MitsumoriListState extends ConsumerState<MitsumoriList> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  const Padding(
-                      padding: EdgeInsets.only(right: 8),
-                      child: Text(
-                        '小計',
-                        style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w600),
-                      )),
                   Row(
                     children: [
+                      SizedBox(
+                          width: 50,
+                          child: Text(
+                            viewModel.getMitsumori_list[index].price
+                                    .toString() +
+                                "円".toString(),
+                            textAlign: TextAlign.end,
+                            style: const TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w600),
+                          )),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 8),
+                      ),
                       SizedBox(
                         width: 30,
                         child: TextFormField(
                           controller: amountController
                             ..text = viewModel.getMitsumori_list[index].amount
                                 .toString(),
+                          textAlign: TextAlign.end,
                           onChanged: (value) {
                             if (value != '') {
                               for (var i = 0;

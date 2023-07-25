@@ -4,7 +4,7 @@ import 'package:savvy/view/scan_screen.dart';
 import 'package:savvy/view/search_result_screen.dart';
 import 'package:savvy/view_model/login_view_model.dart';
 
-class CustomAppBar extends ConsumerWidget with PreferredSizeWidget {
+class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
 

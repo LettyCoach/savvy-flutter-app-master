@@ -48,6 +48,10 @@ class ScannerPage extends ConsumerWidget {
                         'user_type': loginViewModelProvoder.getUserType,
                         'barcode': data,
                       }));
+                  print('----------------------------------');
+                  print(loginViewModelProvoder.getUserId);
+                  print(loginViewModelProvoder.getUserType);
+                  print(data);
                   if (response.statusCode == 200) {
                     var parsedJson = jsonDecode(response.body);
                     if (parsedJson['id'] == 0) {
